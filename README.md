@@ -1,4 +1,20 @@
-# SundayCrudeApp
+# Crude-User-Management-system-App
+
+This is simple application which is built using Angular and provides below functionalties:
+
+  1. Retrieve the list of users from the server via API
+  2. Add a user
+  3. Edite a user
+  4. Remove users
+  
+ Setup instructions:
+
+    run npm install
+    install bower if it's not installed and then run bower install (For Bootstrap and Font-Awesome)
+    start angular app using ng serve -o
+
+This application uses db.json file as FAKE-RST  API server.
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
