@@ -15,6 +15,63 @@ This is simple application which is built using Angular and provides below funct
 
 This application uses db.json file as FAKE-RST  API server.
 
+#Getting started FAKE REST-API for the project use below steps 
+
+Install JSON Server
+
+npm install -g json-server
+
+Create a db.json file with some data
+
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Mark",
+            "gender": "Male",
+            "contactPreferance": "Email",
+            "email": "mark@gmail.com",
+            "phone": "9890042117",
+            "dateOfBirth": "10/25/1988",
+            "department": "IT",
+            "isActive": true,
+            "photoPath": "assets/images/jhon.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Jone",
+            "gender": "Male",
+            "contactPreferance": "Email",
+            "email": "mark@gmail.com",
+            "phone": "9845621710",
+            "dateOfBirth": "10/25/1988",
+            "department": "IT",
+            "isActive": true,
+            "photoPath": "assets/images/jhon.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Rock",
+            "gender": "Male",
+            "contactPreferance": "Email",
+            "email": "mark@gmail.com",
+            "phone": "9890042117",
+            "dateOfBirth": "10/25/1988",
+            "department": "IT",
+            "isActive": true,
+            "photoPath": "assets/images/jhon.jpg"
+        }
+    ]
+    
+}
+
+Start JSON Server
+
+json-server --watch db.json
+
+Now if you go to http://localhost:3000/users, you'll get all data
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
