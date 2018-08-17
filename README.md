@@ -15,15 +15,15 @@ This is simple application which is built using Angular and provides below funct
 
 This application uses db.json file as FAKE-RST  API server.
 
-#Getting started FAKE REST-API for the project use below steps 
+# Getting started FAKE REST-API for the project use below steps 
 
 Install JSON Server
 
-npm install -g json-server
+    npm install -g json-server
 
 Create a db.json file with some data
 
-{
+      {
     "users": [
         {
             "id": 1,
@@ -63,11 +63,11 @@ Create a db.json file with some data
         }
     ]
     
-}
+    }
 
 Start JSON Server
 
-json-server --watch db.json
+    json-server --watch db.json
 
 Now if you go to http://localhost:3000/users, you'll get all data
 
