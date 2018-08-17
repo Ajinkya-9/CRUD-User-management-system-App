@@ -1,0 +1,160 @@
+<div class="container">
+  <!-- <div class="jumbotron">
+    <h1>Welcome</h1>
+    <h2>Angular & Bootstrap Demo</h2>
+  </div> -->
+  <div class="well well-lg col-sm-10 col-sm-offset-1" *ngFor="let user of Users | paginate: { itemsPerPage: 3, currentPage: p }">
+    <div class="panel panel-primary">
+      <div class="panel-heading">{{user.name}}
+        <span class="pull-right">
+          <button type="button" style="padding: 2px 4px" class="btn btn-info " (click)="showEditModel(user)" data-toggle="modal" data-target="#myModal">Edit</button>
+        </span>
+        <span class="pull-right">
+          <button type="button" style="padding: 2px 4px" class="btn btn-danger " (click)="deletUser(user.id)">Delet</button>
+        </span>
+      </div>
+      <div class="panel-body">
+        <table class="table table-hover  col-sm-12">
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>Gender</th>
+              <th>Date Of bith</th>
+              <th>Phone No.</th>
+              <th>Contact Preferance</th>
+              <th>Department</th>
+              <th>Active</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{user.email}}</td>
+              <td>{{user.gender}}</td>
+              <td>{{user.dateOfBirth}}</td>
+              <td>{{user.phone}}</td>
+              <td>{{user.contactPreferance}}</td>
+              <td>{{user.department}}</td>
+              <td>{{user.isActive}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="well well-lg col-sm-10 col-sm-offset-1">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+</div>
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <div class="panel panel-primary">
+            <div class="panel-heading">Create Users</div>
+            <div class="panel-body">
+
+              <form class="form-horizontal" #createUserForm="ngForm" (ngSubmit)="createUser(createUserForm.value)">
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="name">Name:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="name" #email ngModel [value]="editableUser?.name" name="name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="email">Email:</label>
+                  <div class="col-sm-10">
+                    <input type="email" class="form-control" id="email" #email ngModel [value]="editableUser?.email" name="email">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="phone">Phone No:</label>
+                  <div class="col-sm-10">
+                    <input type="number" class="form-control" id="phone" #phone ngModel [value]="editableUser?.phone" name="phone">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="dateOfBirth">Date Of Birth:</label>
+                  <div class="col-sm-10">
+                    <input type="date" class="form-control" id="dateOfBirth" #dateOfBirth ngModel [value]="editableUser?.dateOfBirth" name="dateOfBirth">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="gender">Gender:</label>
+                  <div class=" col-sm-10">
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="gender" id="gender" #gender ngModel value="Male"> Male </label>&nbsp;
+                      <label>
+                        <input type="radio" name="gender" id="gender" #gender ngModel value="Female"> Female </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="contactPreferance">Conatct Preferance:</label>
+                  <div class=" col-sm-10">
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="contactPreferance" id="contactPreferance" #contactPreferance ngModel value="Email"> Email </label>&nbsp;
+                      <label>
+                        <input type="radio" name="contactPreferance" id="contactPreferance" #contactPreferance ngModel value="Phone"> Phone </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="isActive">Active:</label>
+                  <div class=" col-sm-10">
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="isActive" id="isActive" #isActive ngModel value="true"> True </label>&nbsp;
+                      <label>
+                        <input type="radio" name="isActive" id="isActive" #gender ngModel value="false"> False </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="department">Department:</label>
+                  <div class=" col-sm-10">
+                    <select id="department" id="department" name="department" #department ngModel class="form-contro">
+                      <option value="1">Help Desk</option>
+                      <option value="2">HR</option>
+                      <option value="3">IT</option>
+                      <option value="4">Payroll</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" name="remember"> Remember me</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default" data-dismiss="modal">Submit</button>
+                  </div>
+                </div>
+              </form>
+              {{createUserForm.value | json}}
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

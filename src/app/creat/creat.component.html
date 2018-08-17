@@ -1,0 +1,90 @@
+<p>
+  creat works!
+<div class="container">
+    <div class="well well-lg col-sm-10 col-sm-offset-1">
+<div class="panel panel-primary">
+<div class="panel-heading">Create Users</div>
+<div class="panel-body">
+ 
+<form class="form-horizontal" #createUserForm="ngForm" (ngSubmit)=createUser(createUserForm.value)>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="name">Name:</label>
+        <div class="col-sm-10">          
+          <input type="text" class="form-control" id="name"  #email ngModel placeholder="Enter Name" name="name">
+        </div>
+      </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="email">Email:</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="email" #email ngModel placeholder="Enter email" name="email">
+    </div>
+  </div>
+  <div class="form-group">
+      <label class="control-label col-sm-2" for="phone">Phone No:</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="phone" #phone ngModel placeholder="Enter phone" name="phone">
+      </div>
+    </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="dateOfBirth">Date Of Birth:</label>
+    <div class="col-sm-10">          
+      <input type="date" class="form-control" id="dateOfBirth"  #dateOfBirth ngModel  name="dateOfBirth">
+    </div>
+  </div>
+  <div class="form-group">        
+      <label class="control-label col-sm-2" for="gender">Gender:</label>
+      <div class=" col-sm-10">
+        <div class="radio">
+          <label><input type="radio" name="gender" id="gender" #gender ngModel value="Male"> Male </label>&nbsp;
+          <label><input type="radio" name="gender" id="gender" #gender ngModel value="Female"> Female </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">        
+        <label class="control-label col-sm-2" for="contactPreferance">Conatct Preferance:</label>
+        <div class=" col-sm-10">
+          <div class="radio">
+            <label><input type="radio" name="contactPreferance" id="contactPreferance" #contactPreferance ngModel value="Email"> Email </label>&nbsp;
+            <label><input type="radio" name="contactPreferance" id="contactPreferance" #contactPreferance ngModel value="Phone"> Phone </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">        
+          <label class="control-label col-sm-2" for="isActive">Active:</label>
+          <div class=" col-sm-10">
+            <div class="radio">
+              <label><input type="radio" name="isActive" id="isActive" #isActive ngModel value="true"> True </label>&nbsp;
+              <label><input type="radio" name="isActive" id="isActive" #gender ngModel value="false"> False </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">        
+            <label class="control-label col-sm-2" for="department">Department:</label>
+            <div class=" col-sm-10">
+              <select id="department" id="department" name="department" #department ngModel  class="form-contro" >
+                <option value="1">Help Desk</option>
+                <option value="2">HR</option>
+                <option value="3">IT</option>
+                <option value="4">Payroll</option>
+              </select>
+            </div>
+          </div>
+  <div class="form-group">        
+      
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label><input type="checkbox" name="remember"> Remember me</label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">        
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+  </div>
+</form>
+{{createUserForm.value | json}}
+</div>
+</div>
+</div>
+</div>
