@@ -1,4 +1,4 @@
-# Crude-User-Management-system-App
+# Crud-User-Management-system-App
 
 This is simple application which is built using Angular and provides below functionalties:
 
@@ -10,10 +10,9 @@ This is simple application which is built using Angular and provides below funct
  Setup instructions:
 
     run npm install
-    install bower if it's not installed and then run bower install (For Bootstrap and Font-Awesome)
     start angular app using ng serve -o
 
-This application uses db.json file as FAKE-RST  API server.
+This application uses db.json file as FAKE-RST  API server. 
 
 # Getting started FAKE REST-API for the project use below steps 
 
@@ -21,7 +20,7 @@ Install JSON Server
 
     npm install -g json-server
 
-Create a db.json file with some data
+Create a db.json file with User data
 
       {
     "users": [
